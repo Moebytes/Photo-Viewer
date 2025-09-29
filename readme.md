@@ -2,7 +2,7 @@
 
 <img src="assets/images/readme.png">
 
-This is a photo/GIF viewer with support for many cool resizing and color effects.
+This is a simple photo viewer app.
 
 ### Features:
 - View images (PNG, JPG, WEBP, TIFF) and animated GIFs
@@ -59,3 +59,4 @@ Open an issue on my GitHub repository.
 
 - [Music Player](https://github.com/Moebits/Music-Player)
 - [Video Player](https://github.com/Moebits/Video-Player)
+
