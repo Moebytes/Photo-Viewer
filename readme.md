@@ -48,7 +48,7 @@ Download the latest installer from the [releases](https://github.com/Moebytes/Ph
 
 On MacOS unsigned applications won't open, run this to remove the quarantine flag.
 ```
-xattr -d com.apple.quarantine /Applications/Photo\ Viewer.app
+xattr -d com.apple.quarantine "/Applications/Photo Viewer.app"
 ```
 
 ### Bugs and Requests
@@ -59,5 +59,6 @@ Open an issue on my GitHub repository.
 
 - [Music Player](https://github.com/Moebytes/Music-Player)
 - [Video Player](https://github.com/Moebytes/Video-Player)
+
 
 
