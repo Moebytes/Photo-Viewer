@@ -118,7 +118,7 @@
       }
     ]
   },
-  "author": "Moebits",
+  "author": "Moebytes",
   "license": "MIT",
   "devDependencies": {
     "@types/fluent-ffmpeg": "^2.1.18",
@@ -174,4 +174,5 @@
     "unzipper": "^0.10.11"
   }
 }
+
 
