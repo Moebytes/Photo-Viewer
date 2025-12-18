@@ -269,7 +269,7 @@ module.exports = [
   },
   {
     target: "electron-renderer",
-    entry: "./components/GifDialog",
+    entry: "./components/GIFDialog",
     mode: "production",
     node: {__dirname: false},
     stats: {children: true},
