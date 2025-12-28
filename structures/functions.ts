@@ -231,18 +231,13 @@ export default class Functions {
     }
 
     public static parsePixivLink = async (link: string) => {
-        const pixiv = await Pixiv.refreshLogin("c-SC58UMg144msd2ed2vNAkMnJAVKPPlik-0HkOPoAw")
-        let resolvable = link as string | number
-        if (link.includes("pximg.net")) {
-            const id = path.basename(link).match(/(\d+)(?=_)/)?.[0]
-            resolvable = Number(id)
-        }
-        const illust = await pixiv.illust.get(resolvable)
+        const headers = {"Content-Type": "application/json"}
+        const {illust, ugoiraMetadata} = await fetch("https://moepictures.net/api/misc/pixiv", 
+            {body: JSON.stringify({url: link}), headers, method: "POST"}).then((r) => r.json())
         let url = null
-        if (illust.type === "ugoira") {
-            const metadata = await pixiv.ugoira.get(illust.id).then((r) => r.ugoira_metadata)
-            const delayArray = metadata.frames.map((f) => f.delay)
-            const arrayBuffer = await fetch(metadata.zip_urls.medium).then((r) => r.arrayBuffer())
+        if (ugoiraMetadata) {
+            const delayArray = ugoiraMetadata.frames.map((f: any) => f.delay)
+            const arrayBuffer = await fetch(ugoiraMetadata.zip_urls.medium).then((r) => r.arrayBuffer())
             const zip = await unzipper.Open.buffer(Functions.arrayBufferToBuffer(arrayBuffer))
             const frameArray: Buffer[] = []
             for (let i = 0; i < zip.files.length; i++) {
